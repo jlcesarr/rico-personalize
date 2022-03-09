@@ -1,0 +1,175 @@
+body {
+    background-color: $bg;
+}
+
+// HEADER (CABEÇALHO)
+header {
+    background-color: $orange;
+    .header-wrapper {
+        @include container;
+        max-width: 100%;
+        // margin: 0 auto;
+        justify-content: space-between;
+        padding: 10px 30px;
+        .header-logo {
+            max-height: 56px;
+        }
+    }
+}
+
+.header-menu {
+    .menu-list {
+        list-style: none;
+        @include flex;
+        .menu-item {
+            &+.menu-item {
+                margin-left: 16px;
+            }
+            .menu-link {
+                @include typeface-2(16);
+                text-decoration: none;
+                color: $white;
+                text-transform: capitalize;
+                padding: 10px;
+            }
+            transition: .7s ease;
+            &:hover {
+                background-color: $white;
+                .menu-link {
+                    color: $orange;
+                }
+            }
+        }
+        @include responsive(small) {
+            display: none;
+        }
+    }
+}
+
+.content-wrapper {
+    display: grid;
+    margin: 0 auto;
+    background-color: $section;
+    grid-template: "aside" "hero" / 100%;
+    @include responsive(large) {
+        grid-template: "hero aside" / 1fr 300px;
+    }
+}
+
+// HERO (PERSONALIZAR CARTÃO)
+.hero {
+    @include container;
+    grid-area: hero;
+    margin: 0;
+    gap: to-rem(256);
+}
+
+.hero-content {
+    .hero-heading {
+        @include typeface-1(32);
+        margin-bottom: to-rem(32);
+    }
+    .hero-subheading {
+        @include typeface-1(18);
+        margin-bottom: to-rem(16);
+        margin-top: to-rem(32);
+    }
+    .hero-helper {
+        @include typeface-2(16);
+        margin-bottom: to-rem(16);
+        margin-top: to-rem(16);
+    }
+    label,
+    input[type="text"] {
+        display: block;
+        @include typeface-2(16)
+    }
+    input[type="text"] {
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid #716b84;
+        padding: 5px;
+        transition: border .3s ease;
+        // border-radius: 5px;
+        width: 200px;
+        &:focus,
+        &:hover {
+            outline: none;
+            border-bottom: 2px solid $orange;
+        }
+    }
+}
+
+.hero-buttons {
+    margin-top: to-rem(48);
+    display: flex;
+    gap: to-rem(16)
+}
+
+// CARD
+.card-wrapper {
+    position: relative;
+    margin-bottom: to-rem(16);
+    .card {
+        max-height: 500px;
+    }
+}
+
+// ASIDE (RASCUNHOS/CARTOES SALVOS)
+aside.drafts {
+    grid-area: aside;
+    @include container;
+    width: calc(100% - 20px);
+    justify-self: center;
+    overflow: hidden;
+    padding: 40px 5px;
+    flex-direction: column;
+    height: 90%;
+    margin: 1rem;
+    border: 5px solid $orange;
+}
+
+.drafts-heading {
+    @include typeface-1(24);
+    margin-bottom: to-rem(32);
+}
+
+.drafts-list {
+    @include container;
+    flex-direction: column;
+    gap: to-rem(32);
+    padding: 10px;
+    list-style: none;
+    .draft-item {
+        position: relative;
+        @include flex;
+        gap: to-rem(8);
+        @include typeface-2(16);
+        .draft-image {
+            width: 96px;
+            height: auto;
+        }
+        .draft-overlay {
+            opacity: 0;
+            transition: .5s ease;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #716b84;
+            pointer-events: none;
+            button {
+                position: absolute;
+                left: 20px;
+                top: 10px;
+            }
+        }
+        &:hover {
+            .draft-overlay {
+                opacity: 1;
+                pointer-events: all;
+            }
+        }
+    }
+}

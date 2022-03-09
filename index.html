@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/vendors/svg-inject.min.js"></script>
+    <title>Rico | Costumize o seu cartão</title>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-wrapper">
+            <img src="assets/svg/logo.svg" alt="Logo Rico.com.vc" class="header-logo">
+
+            <nav class="header-menu">
+                <ul class="menu-list">
+                    <li class="menu-item"><a class="menu-link" href="#">Pedir meu cartão</a></li>
+                    <li class="menu-item"><a class="menu-link" href="#">Consultar Regulamento</a></li>
+                    <li class="menu-item"><a class="menu-link" href="#">Vantagens</a></li>
+                    <li class="menu-item"><a class="menu-link" href="#">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- CONTENT GRID WRAPPER -->
+    <div class="content-wrapper">
+        <main class="container hero">
+            <!-- CONTENT (CUSTOMIZE CARD) -->
+            <div class="hero-content">
+                <h1 class="hero-heading">Olá! Seja bem-vindo!</h1>
+                <p class="hero-helper">
+                    Esta é a primeira etapa para solicitar seu cartão <span class="highlighted">Rico</span>!<br> Personalize o seu cartão do modo que preferir.
+                </p>
+
+                <h2 class="hero-subheading">Vamos começar pelo seu nome: </h2>
+                <h3 class="hero-helper">Este será o nome que ficará impresso no verso do seu cartão</h3>
+
+                <input aria-label="Nome e Sobrenome" type="text" name="fullname" id="fullname" placeholder="Nome e Sobrenome">
+
+                <div class="hero-colors">
+                    <h2 class="hero-subheading">Agora, escolha a cor do seu cartão:</h2>
+                    <h3 class="hero-helper">Cores sólidas</h3>
+                    <button type="button" class="color-select color-1"></button>
+                    <button type="button" class="color-select color-2"> </button>
+
+                    <h3 class="hero-helper">Gradientes</h3>
+                    <button type="button" class="color-select gradient-1"></button>
+                    <button type="button" class="color-select gradient-2"> </button>
+                </div>
+
+                <div class="hero-buttons">
+                    <button type="button" class="btn-save primary-button">Continuar</button>
+                    <button type="button" class="btn-draft secondary-button">Salvar como rascunho</button>
+                </div>
+
+            </div>
+
+
+            <!-- CARD PREVIEW -->
+            <div class="card-wrapper">
+                <img class="card" src="assets/svg/cartao-frente.svg" onload="SVGInject(this)">
+
+                <div class="card-buttons">
+                    <button title="Frente" type="button" class="card-button front-button"></button>
+                    <button title="Verso" type="button" class="card-button verse-button "></button>
+                </div>
+            </div>
+        </main>
+
+        <!-- DRAFTS -->
+        <aside class="drafts">
+            <h2 class="drafts-heading">Rascunhos salvos</h2>
+            <ul class="drafts-list">
+                <li class="draft-item ">
+                    <img src="assets/images/cartao-virado.png" alt="Card Picture" class="draft-image ">
+                    <span class="draft-owner">JULIO C PEREIRA</span>
+                    <span class="draft-date">08/03 17:10</span>
+                    <div class="draft-overlay">
+                        <button class="primary-button">Recuperar</button>
+                    </div>
+                </li>
+                <li class="draft-item ">
+                    <img src="assets/images/cartao-virado.png" alt="Card Picture" class="draft-image ">
+                    <span class="draft-owner">LUANA RODRIGUES</span>
+                    <span class="draft-date">08/03 15:50</span>
+                    <div class="draft-overlay">
+                        <button class="primary-button">Recuperar</button>
+                    </div>
+                </li>
+                <li class="draft-item ">
+                    <img src="assets/images/cartao-virado.png" alt="Card Picture" class="draft-image ">
+                    <span class="draft-owner">ANA LUCIA</span>
+                    <span class="draft-date">08/03 12:50</span>
+                    <div class="draft-overlay">
+                        <button class="primary-button">Recuperar</button>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+/* line 2, ../../../../rico.com.vc/assets/scss/style.scss */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* line 13, ../../../../rico.com.vc/assets/scss/style.scss */
+img,
+a {
+  display: block;
+}
+
+/* line 18, ../../../../rico.com.vc/assets/scss/style.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 24, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.primary-button {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 40px;
+  width: 200px;
+  background-color: #FE5200;
+  color: #FFF;
+  border: none;
+  transition: transform .5s ease;
+}
+
+/* line 19, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.primary-button:hover {
+  transform: scale(1.03);
+}
+
+/* line 28, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.secondary-button {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 40px;
+  width: 200px;
+  background-color: transparent;
+  color: #FE5200;
+  border: 2px solid #FE5200;
+  transition: transform .5s ease;
+}
+
+/* line 19, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.secondary-button:hover {
+  transform: scale(1.03);
+}
+
+/* line 33, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.color-1, .color-2, .gradient-1, .gradient-2 {
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+}
+
+/* line 41, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.color-1 {
+  background-color: #FE5200;
+}
+
+/* line 46, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.color-2 {
+  background-color: #1f1f1f;
+}
+
+/* line 51, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.gradient-1 {
+  background: linear-gradient(180deg, #FE5200, #1f1f1f);
+}
+
+/* line 56, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.gradient-2 {
+  background: linear-gradient(180deg, #1f1f1f, #FE5200);
+}
+
+/* line 62, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.card-button::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  position: absolute;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid red;
+  border-right: 2px solid red;
+}
+
+/* line 77, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.front-button::after {
+  left: 90px;
+  transform: rotate(145deg);
+}
+
+/* line 84, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+.verse-button::after {
+  right: 90px;
+  transform: rotate(-45deg);
+}
+
+/* line 36, ../../../../rico.com.vc/assets/scss/partials/_typography.scss */
+.highlighted {
+  color: #FE5200;
+}
+
+/* line 1, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+body {
+  background-color: #FAFAFA;
+}
+
+/* line 6, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+header {
+  background-color: #FE5200;
+}
+
+/* line 8, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+header .header-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1200px;
+  max-width: 100%;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+/* line 14, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+header .header-wrapper .header-logo {
+  max-height: 56px;
+}
+
+/* line 21, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.header-menu .menu-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+/* line 24, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.header-menu .menu-list .menu-item {
+  transition: .7s ease;
+}
+
+/* line 25, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.header-menu .menu-list .menu-item + .menu-item {
+  margin-left: 16px;
+}
+
+/* line 28, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.header-menu .menu-list .menu-item .menu-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: #FFF;
+  text-transform: capitalize;
+  padding: 10px;
+}
+
+/* line 36, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.header-menu .menu-list .menu-item:hover {
+  background-color: #FFF;
+}
+
+/* line 38, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.header-menu .menu-list .menu-item:hover .menu-link {
+  color: #FE5200;
+}
+
+@media only screen and (max-width: 540px) {
+  /* line 21, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  .header-menu .menu-list {
+    display: none;
+  }
+}
+
+/* line 49, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.content-wrapper {
+  display: grid;
+  margin: 0 auto;
+  background-color: #EAEAEA;
+  grid-template: "aside" "hero" / 100%;
+}
+
+@media only screen and (min-width: 1200px) {
+  /* line 49, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  .content-wrapper {
+    grid-template: "hero aside" / 1fr 300px;
+  }
+}
+
+/* line 60, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1200px;
+  grid-area: hero;
+  margin: 0;
+  gap: 16rem;
+}
+
+/* line 68, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero-content .hero-heading {
+  font-family: 'Saira', sans-serif;
+  font-size: 2rem;
+  line-height: 0.3125rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+/* line 72, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero-content .hero-subheading {
+  font-family: 'Saira', sans-serif;
+  font-size: 1.125rem;
+  line-height: 0.9375rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+/* line 77, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero-content .hero-helper {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+/* line 82, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero-content label,
+.hero-content input[type="text"] {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  font-weight: 300;
+}
+
+/* line 87, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero-content input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #716b84;
+  padding: 5px;
+  transition: border .3s ease;
+  width: 200px;
+}
+
+/* line 95, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero-content input[type="text"]:focus, .hero-content input[type="text"]:hover {
+  outline: none;
+  border-bottom: 2px solid #FE5200;
+}
+
+/* line 103, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.hero-buttons {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* line 110, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.card-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+/* line 113, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.card-wrapper .card {
+  max-height: 500px;
+}
+
+/* line 119, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+aside.drafts {
+  grid-area: aside;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: calc(100% - 20px);
+  justify-self: center;
+  overflow: hidden;
+  padding: 40px 5px;
+  flex-direction: column;
+  height: 90%;
+  margin: 1rem;
+  border: 5px solid #FE5200;
+}
+
+/* line 132, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.drafts-heading {
+  font-family: 'Saira', sans-serif;
+  font-size: 1.5rem;
+  line-height: 0.625rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+/* line 137, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.drafts-list {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 10px;
+  list-style: none;
+}
+
+/* line 143, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.drafts-list .draft-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  font-weight: 300;
+}
+
+/* line 148, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.drafts-list .draft-item .draft-image {
+  width: 96px;
+  height: auto;
+}
+
+/* line 152, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.drafts-list .draft-item .draft-overlay {
+  opacity: 0;
+  transition: .5s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #716b84;
+  pointer-events: none;
+}
+
+/* line 162, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.drafts-list .draft-item .draft-overlay button {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+
+/* line 169, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+.drafts-list .draft-item:hover .draft-overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/*# sourceMappingURL=style.css.map */

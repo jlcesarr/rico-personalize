@@ -16,7 +16,7 @@ $container-s: 540px;
     }
     @else if($device==small) {
         // até 974px
-        @media only screen and (max-width: ($container-s)) {
+        @media only screen and (max-width: ($container-m - 1)) {
             @content;
         }
     }

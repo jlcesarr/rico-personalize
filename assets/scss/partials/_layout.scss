@@ -5,6 +5,7 @@ body {
 // HEADER (CABEÇALHO)
 header {
     background-color: $orange;
+    width: 100%;
     .header-wrapper {
         @include container;
         max-width: 100%;
@@ -52,7 +53,7 @@ header {
     background-color: $section;
     grid-template: "aside" "hero" / 100%;
     @include responsive(large) {
-        grid-template: "hero aside" / 1fr 300px;
+        grid-template: "hero aside" / 1fr minmax(140px, 340px);
     }
 }
 
@@ -61,7 +62,17 @@ header {
     @include container;
     grid-area: hero;
     margin: 0;
-    gap: to-rem(256);
+    gap: to-rem(196);
+    @include responsive(medium) {
+        flex-direction: column;
+        margin-top: 48px;
+        gap: to-rem(48);
+    }
+    @include responsive(small) {
+        margin-top: 48px;
+        flex-direction: column;
+        gap: to-rem(48);
+    }
 }
 
 .hero-content {
@@ -90,7 +101,6 @@ header {
         border-bottom: 2px solid #716b84;
         padding: 5px;
         transition: border .3s ease;
-        // border-radius: 5px;
         width: 200px;
         &:focus,
         &:hover {
@@ -98,6 +108,19 @@ header {
             border-bottom: 2px solid $orange;
         }
     }
+    margin-bottom: 48px;
+    max-width: 90vw;
+    @include responsive(large) {
+        margin-bottom: unset;
+        max-width: unset;
+    }
+}
+
+.input-error-message {
+    color: transparentize(red, 0.2);
+    opacity: 0;
+    user-select: none;
+    @include typeface-2(16);
 }
 
 .hero-buttons {
@@ -108,10 +131,16 @@ header {
 
 // CARD
 .card-wrapper {
-    position: relative;
-    margin-bottom: to-rem(16);
+    // position: relative;
+    @include flex;
+    flex-direction: column;
+    @include responsive(large) {
+        max-height: 530px;
+    }
     .card {
-        max-height: 500px;
+        max-width: 300px;
+        height: auto;
+        margin-bottom: 24px;
     }
 }
 
@@ -119,14 +148,21 @@ header {
 aside.drafts {
     grid-area: aside;
     @include container;
-    width: calc(100% - 20px);
-    justify-self: center;
     overflow: hidden;
     padding: 40px 5px;
+    border-radius: 5px;
     flex-direction: column;
-    height: 90%;
+    height: 95%;
     margin: 1rem;
-    border: 5px solid $orange;
+    margin: 0 auto;
+    margin-top: 48px;
+    color: $white;
+    width: calc(100% - 20px);
+    background: #190564;
+    @include responsive(large) {
+        width: 90%;
+        margin: 1rem;
+    }
 }
 
 .drafts-heading {
@@ -137,32 +173,40 @@ aside.drafts {
 .drafts-list {
     @include container;
     flex-direction: column;
-    gap: to-rem(32);
+    row-gap: to-rem(24);
     padding: 10px;
     list-style: none;
     .draft-item {
+        vertical-align: middle;
         position: relative;
+        width: 100%;
         @include flex;
         gap: to-rem(8);
         @include typeface-2(16);
         .draft-image {
-            width: 96px;
-            height: auto;
+            width: 56px;
         }
         .draft-overlay {
             opacity: 0;
             transition: .5s ease;
             position: absolute;
             width: 100%;
-            top: 0;
-            left: 0;
-            height: 100%;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
             background-color: #716b84;
-            pointer-events: none;
-            button {
-                position: absolute;
-                left: 20px;
-                top: 10px;
+            height: 100%;
+            .overlay-content {
+                display: flex;
+                gap: 8px;
+                padding: 10px;
+                height: 100%;
+                align-items: center;
+                pointer-events: none;
+                button {
+                    max-width: 50%;
+                }
             }
         }
         &:hover {
@@ -170,6 +214,12 @@ aside.drafts {
                 opacity: 1;
                 pointer-events: all;
             }
+        }
+        @include responsive(medium) {
+            width: 300px;
+        }
+        @include responsive(small) {
+            width: 300px;
         }
     }
 }

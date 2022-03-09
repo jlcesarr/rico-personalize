@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Solicite agora mesmo o seu Rico Card!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="assets/js/vendors/svg-inject.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Rico | Costumize o seu cartão</title>
 </head>
 
@@ -38,28 +41,31 @@
             <div class="hero-content">
                 <h1 class="hero-heading">Olá! Seja bem-vindo!</h1>
                 <p class="hero-helper">
-                    Esta é a primeira etapa para solicitar seu cartão <span class="highlighted">Rico</span>!<br> Personalize o seu cartão do modo que preferir.
+                    Esta é a primeira etapa para solicitar o seu <span class="highlighted">Rico Card</span>!<br> Personalize o seu cartão do modo que preferir.
                 </p>
 
                 <h2 class="hero-subheading">Vamos começar pelo seu nome: </h2>
-                <h3 class="hero-helper">Este será o nome que ficará impresso no verso do seu cartão</h3>
+                <h3 class="hero-helper low-opacity">Este será o nome que ficará impresso no verso do seu cartão</h3>
 
-                <input aria-label="Nome e Sobrenome" type="text" name="fullname" id="fullname" placeholder="Nome e Sobrenome">
+                <input minlength="1" maxlength="20" aria-label="Nome e Sobrenome" type="text" name="fullname" id="fullname" placeholder="Nome e Sobrenome" required autocomplete="off">
+
+                <span class="input-error-message">Insira um nome válido!</span>
+
 
                 <div class="hero-colors">
                     <h2 class="hero-subheading">Agora, escolha a cor do seu cartão:</h2>
                     <h3 class="hero-helper">Cores sólidas</h3>
-                    <button type="button" class="color-select color-1"></button>
-                    <button type="button" class="color-select color-2"> </button>
+                    <button type="button" class="color-select color-1" data-card-color="default"></button>
+                    <button type="button" class="color-select color-2" data-card-color="black"> </button>
 
                     <h3 class="hero-helper">Gradientes</h3>
-                    <button type="button" class="color-select gradient-1"></button>
-                    <button type="button" class="color-select gradient-2"> </button>
+                    <button type="button" class="color-select gradient-1" data-card-color="gradient-1"></button>
+                    <button type="button" class="color-select gradient-2" data-card-color="gradient-2"> </button>
                 </div>
 
                 <div class="hero-buttons">
-                    <button type="button" class="btn-save primary-button">Continuar</button>
-                    <button type="button" class="btn-draft secondary-button">Salvar como rascunho</button>
+                    <button type="submit" class="btn-save btn-action primary-button disabled">Continuar</button>
+                    <button type="button" class="btn-draft btn-action secondary-button disabled">Salvar como rascunho</button>
                 </div>
 
             </div>
@@ -67,11 +73,13 @@
 
             <!-- CARD PREVIEW -->
             <div class="card-wrapper">
-                <img class="card" src="assets/svg/cartao-frente.svg" onload="SVGInject(this)">
+                <div class="js-tilt">
+                    <img class="card card-front card-default is-active" src="assets/svg/cartao-frente.svg" onload="SVGInject(this)">
+                    <img class="card card-verse card-default" src="assets/svg/cartao-verso.svg" onload="SVGInject(this)">
+                </div>
 
                 <div class="card-buttons">
-                    <button title="Frente" type="button" class="card-button front-button"></button>
-                    <button title="Verso" type="button" class="card-button verse-button "></button>
+                    <button title="Rotacionar cartão" type="button" class="secondary-button rotate-btn">Rotacionar</button>
                 </div>
             </div>
         </main>
@@ -80,33 +88,24 @@
         <aside class="drafts">
             <h2 class="drafts-heading">Rascunhos salvos</h2>
             <ul class="drafts-list">
-                <li class="draft-item ">
-                    <img src="assets/images/cartao-virado.png" alt="Card Picture" class="draft-image ">
-                    <span class="draft-owner">JULIO C PEREIRA</span>
-                    <span class="draft-date">08/03 17:10</span>
-                    <div class="draft-overlay">
-                        <button class="primary-button">Recuperar</button>
-                    </div>
-                </li>
-                <li class="draft-item ">
-                    <img src="assets/images/cartao-virado.png" alt="Card Picture" class="draft-image ">
-                    <span class="draft-owner">LUANA RODRIGUES</span>
-                    <span class="draft-date">08/03 15:50</span>
-                    <div class="draft-overlay">
-                        <button class="primary-button">Recuperar</button>
-                    </div>
-                </li>
-                <li class="draft-item ">
-                    <img src="assets/images/cartao-virado.png" alt="Card Picture" class="draft-image ">
-                    <span class="draft-owner">ANA LUCIA</span>
-                    <span class="draft-date">08/03 12:50</span>
-                    <div class="draft-overlay">
-                        <button class="primary-button">Recuperar</button>
-                    </div>
-                </li>
             </ul>
         </aside>
     </div>
+
+    <script type="module" src="assets/js/app.js"> </script>
+    <script src="assets/js/vendors/tilt.jquery.min.js"></script>
+
+    <script>
+        $('.js-tilt').tilt({
+            glare: false,
+            perspective: 3000,
+            maxGlare: .3
+        })
+
+        SVGInject.setOptions({
+            makeIdsUnique: false,
+        })
+    </script>
 </body>
 
 </html>

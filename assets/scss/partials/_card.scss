@@ -1,0 +1,62 @@
+.card-wrapper {
+    .card {
+        display: none;
+        .card-rect {
+            transition: all .8s ease;
+            // clip-path: circle(0% at bottom 0 left 0);
+        }
+        &.is-active {
+            display: block;
+            // .card-rect {
+            //     clip-path: circle(200% at bottom 0 left 0) !important;
+            // }
+        }
+        animation: card-animation 3s ease infinite alternate;
+        &.card-default {
+            .card-rect {
+                fill: $orange;
+            }
+        }
+        &.card-black {
+            .card-rect {
+                fill: #1f1f1f;
+            }
+        }
+        &.card-gradient-1 {
+            .card-rect {
+                fill: url(#gradient-1);
+                background: linear-gradient(180deg, #FE5200, #1f1f1f);
+                // position: relative;
+                // &::before {
+                //     content: "";
+                //     width: 100%;
+                //     height: 100%;
+                //     position: absolute;
+                //     top: 0;
+                //     left: 0;
+                //     right: 0;
+                //     bottom: 0;
+                //     background: linear-gradient(180deg, #FE5200, #1f1f1f);
+                //     opacity: 0;
+                //     transition: opacity 0.4s linear;
+                //     z-index: 1;
+                // }
+            }
+        }
+        &.card-gradient-2 {
+            .card-rect {
+                fill: url(#gradient-2);
+                background: linear-gradient(180deg, #1f1f1f, #FE5200);
+            }
+        }
+    }
+}
+
+@keyframes card-animation {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(0px, 5px);
+    }
+}

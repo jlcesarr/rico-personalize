@@ -96,8 +96,15 @@ img {
 
 /* line 69, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
 .card-buttons button {
-  max-width: 120px;
   margin: 0 auto;
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 1200px) {
+  /* line 69, ../../../../rico.com.vc/assets/scss/partials/_buttons.scss */
+  .card-buttons button {
+    max-width: 120px;
+  }
 }
 
 /* line 36, ../../../../rico.com.vc/assets/scss/partials/_typography.scss */
@@ -112,7 +119,7 @@ img {
 
 /* line 1, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 body {
-  background-color: #FAFAFA;
+  background-color: #EAEAEA;
 }
 
 /* line 6, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
@@ -188,7 +195,6 @@ header .header-wrapper .header-logo {
 .content-wrapper {
   display: grid;
   margin: 0 auto;
-  background-color: #EAEAEA;
   grid-template: "aside" "hero" / 100%;
 }
 
@@ -199,7 +205,7 @@ header .header-wrapper .header-logo {
   }
 }
 
-/* line 61, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 60, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero {
   display: flex;
   align-items: center;
@@ -212,7 +218,7 @@ header .header-wrapper .header-logo {
 }
 
 @media only screen and (min-width: 975px) and (max-width: 1199px) {
-  /* line 61, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  /* line 60, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
   .hero {
     flex-direction: column;
     margin-top: 48px;
@@ -221,7 +227,7 @@ header .header-wrapper .header-logo {
 }
 
 @media only screen and (max-width: 974px) {
-  /* line 61, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  /* line 60, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
   .hero {
     margin-top: 48px;
     flex-direction: column;
@@ -229,13 +235,13 @@ header .header-wrapper .header-logo {
   }
 }
 
-/* line 78, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 77, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-content {
   margin-bottom: 48px;
   max-width: 90vw;
 }
 
-/* line 79, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 78, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-content .hero-heading {
   font-family: 'Saira', sans-serif;
   font-size: 2rem;
@@ -244,7 +250,7 @@ header .header-wrapper .header-logo {
   margin-bottom: 2rem;
 }
 
-/* line 83, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 82, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-content .hero-subheading {
   font-family: 'Saira', sans-serif;
   font-size: 1.125rem;
@@ -254,7 +260,7 @@ header .header-wrapper .header-logo {
   margin-top: 2rem;
 }
 
-/* line 88, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 87, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-content .hero-helper {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
@@ -264,7 +270,7 @@ header .header-wrapper .header-logo {
   margin-top: 1rem;
 }
 
-/* line 93, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 92, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-content label,
 .hero-content input[type="text"] {
   display: block;
@@ -274,7 +280,7 @@ header .header-wrapper .header-logo {
   font-weight: 300;
 }
 
-/* line 98, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 97, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-content input[type="text"] {
   background: transparent;
   border: none;
@@ -284,21 +290,21 @@ header .header-wrapper .header-logo {
   width: 200px;
 }
 
-/* line 105, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 104, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-content input[type="text"]:focus, .hero-content input[type="text"]:hover {
   outline: none;
   border-bottom: 2px solid #FE5200;
 }
 
 @media only screen and (min-width: 1200px) {
-  /* line 78, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  /* line 77, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
   .hero-content {
     margin-bottom: unset;
     max-width: unset;
   }
 }
 
-/* line 119, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 118, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .input-error-message {
   color: rgba(255, 0, 0, 0.8);
   opacity: 0;
@@ -309,14 +315,14 @@ header .header-wrapper .header-logo {
   font-weight: 300;
 }
 
-/* line 126, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 125, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .hero-buttons {
   margin-top: 3rem;
   display: flex;
   gap: 1rem;
 }
 
-/* line 133, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 132, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .card-wrapper {
   display: flex;
   align-items: center;
@@ -324,20 +330,20 @@ header .header-wrapper .header-logo {
 }
 
 @media only screen and (min-width: 1200px) {
-  /* line 133, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  /* line 132, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
   .card-wrapper {
     max-height: 530px;
   }
 }
 
-/* line 140, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 139, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .card-wrapper .card {
   max-width: 300px;
   height: auto;
   margin-bottom: 24px;
 }
 
-/* line 148, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 147, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 aside.drafts {
   grid-area: aside;
   display: flex;
@@ -359,14 +365,14 @@ aside.drafts {
 }
 
 @media only screen and (min-width: 1200px) {
-  /* line 148, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  /* line 147, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
   aside.drafts {
     width: 90%;
     margin: 1rem;
   }
 }
 
-/* line 168, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 167, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-heading {
   font-family: 'Saira', sans-serif;
   font-size: 1.5rem;
@@ -375,7 +381,7 @@ aside.drafts {
   margin-bottom: 2rem;
 }
 
-/* line 173, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 172, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-list {
   display: flex;
   align-items: center;
@@ -388,12 +394,12 @@ aside.drafts {
   list-style: none;
 }
 
-/* line 179, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 178, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-list .draft-item {
-  vertical-align: middle;
   position: relative;
   width: 100%;
   display: flex;
+  align-items: center;
   align-items: center;
   gap: 0.5rem;
   font-family: 'Poppins', sans-serif;
@@ -402,12 +408,12 @@ aside.drafts {
   font-weight: 300;
 }
 
-/* line 186, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 185, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-list .draft-item .draft-image {
   width: 56px;
 }
 
-/* line 189, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 188, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-list .draft-item .draft-overlay {
   opacity: 0;
   transition: .5s ease;
@@ -421,7 +427,7 @@ aside.drafts {
   height: 100%;
 }
 
-/* line 200, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 199, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-list .draft-item .draft-overlay .overlay-content {
   display: flex;
   gap: 8px;
@@ -431,28 +437,54 @@ aside.drafts {
   pointer-events: none;
 }
 
-/* line 207, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 206, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-list .draft-item .draft-overlay .overlay-content button {
   max-width: 50%;
 }
 
-/* line 213, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+/* line 212, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
 .drafts-list .draft-item:hover .draft-overlay {
   opacity: 1;
   pointer-events: all;
 }
 
 @media only screen and (min-width: 975px) and (max-width: 1199px) {
-  /* line 179, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  /* line 178, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
   .drafts-list .draft-item {
     width: 300px;
   }
 }
 
 @media only screen and (max-width: 974px) {
-  /* line 179, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
+  /* line 178, ../../../../rico.com.vc/assets/scss/partials/_layout.scss */
   .drafts-list .draft-item {
     width: 300px;
+  }
+}
+
+/* line 1, ../../../../rico.com.vc/assets/scss/partials/_animations.scss */
+.rico-logo {
+  stroke-width: 0;
+  stroke-dasharray: 1 400;
+  stroke-opacity: 0;
+  animation: mountRicoLogo 4s ease 1 forwards;
+}
+
+@keyframes mountRicoLogo {
+  from {
+    stroke-width: 0;
+    stroke-opacity: 0;
+    stroke-dasharray: 1 400;
+    fill-opacity: 0;
+  }
+  50% {
+    stroke-width: 4;
+    stroke-dasharray: 400 0;
+    stroke-opacity: 1;
+  }
+  80%,
+  100% {
+    fill: #FFF;
   }
 }
 
@@ -484,14 +516,12 @@ aside.drafts {
 
 /* line 26, ../../../../rico.com.vc/assets/scss/partials/_card.scss */
 .card-wrapper .card.card-gradient-1 .card-rect {
-  fill: url(#gradient-1);
-  background: linear-gradient(180deg, #FE5200, #1f1f1f);
+  fill: url(#gradient-1) !important;
 }
 
-/* line 47, ../../../../rico.com.vc/assets/scss/partials/_card.scss */
+/* line 31, ../../../../rico.com.vc/assets/scss/partials/_card.scss */
 .card-wrapper .card.card-gradient-2 .card-rect {
-  fill: url(#gradient-2);
-  background: linear-gradient(180deg, #1f1f1f, #FE5200);
+  fill: url(#gradient-2) !important;
 }
 
 @keyframes card-animation {

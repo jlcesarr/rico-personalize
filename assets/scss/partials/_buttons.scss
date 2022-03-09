@@ -8,7 +8,7 @@
     pointer-events: all;
     @if($isPrimary) {
         background-color: #FE5200;
-        color: $white;
+        color: $white-normal;
         border: none;
     }
     @else {
@@ -67,7 +67,10 @@
 
 .card-buttons {
     button {
-        max-width: 120px;
         margin: 0 auto;
+        max-width: 100%;
+        @include responsive(large) {
+            max-width: 120px;
+        }
     }
 }

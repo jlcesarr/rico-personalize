@@ -6,13 +6,9 @@ if (!localStorage.getItem(STORAGE_ITEM_KEY)) {
 }
 
 
-const getStorage = () => {
-    return JSON.parse(localStorage.getItem(STORAGE_ITEM_KEY));
-}
+const getStorage = () => JSON.parse(localStorage.getItem(STORAGE_ITEM_KEY));
 
-const setStorage = (data) => {
-    localStorage.setItem(STORAGE_ITEM_KEY, JSON.stringify(data));
-}
+const setStorage = (data) => localStorage.setItem(STORAGE_ITEM_KEY, JSON.stringify(data));
 
 // C
 const createCardDraft = ({ cardColor, cardOwner }) => {
@@ -40,7 +36,22 @@ const getCardDraft = (draftId) => {
 }
 
 // U
-const editCardDrat = (draftId) => {}
+const editCardDraft = (draftId, partialDraft) => {
+    let currentDrafts = getStorage()
+
+    let draftIndex = currentDrafts.findIndex((draft) => draft.id == draftId);
+
+    let updatedDraft = JSON.parse(JSON.stringify(currentDrafts[draftIndex]));
+    Object.assign(updatedDraft, partialDraft)
+
+    let newDrafts = [...currentDrafts]
+
+    newDrafts[draftIndex] = updatedDraft;
+
+    setStorage(newDrafts);
+
+    return;
+}
 
 // D
 const removeCardDraft = (draftId) => {
@@ -59,7 +70,7 @@ const storage = {
     createCardDraft,
     removeCardDraft,
     getCardDraft,
-    editCardDrat,
+    editCardDraft,
     getDrafts: getStorage
 }
 

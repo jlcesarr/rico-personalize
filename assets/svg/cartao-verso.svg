@@ -1,8 +1,8 @@
 <svg width="458" height="722" viewBox="0 0 458 722" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="cartao-verso" clip-path="url(#clip0_6_128)">
-<rect class="card-rect" id="card-rect" x="458" width="722" height="458" rx="25" transform="rotate(90 458 0)" fill="url(#paint0_linear_6_128)"/>
+<rect class="card-rect" id="card-rect" x="458" width="722" height="458" rx="25" transform="rotate(90 458 0)" fill="url(#gradient-1)"/>
 <g id="overlay" style="mix-blend-mode:overlay">
-<rect x="458" width="722" height="458" rx="25" transform="rotate(90 458 0)" fill="url(#pattern0)" fill-opacity="0.3"/>
+<rect x="458" width="722" height="458" rx="25" transform="rotate(90 458 0)" fill-opacity="0.3"/>
 </g>
 <text id="JULIO C PEREIRA" fill="white" xml:space="preserve" style="white-space: pre" font-family="Saira" font-size="24" letter-spacing="0.1em"><tspan x="169" y="379.352" class="card-owner">JULIO C PEREIRA</tspan></text>
 <g id="07/23" filter="url(#filter0_d_6_128)">
@@ -26,7 +26,7 @@
 </pattern>
 
 <!-- GRADIENT 1 -->
-<linearGradient class="gradient-1" id="gradient-1" x1="510" y1="48" x2="1067" y2="413.5" gradientUnits="userSpaceOnUse">
+<linearGradient class="gradient-1-verse" id="gradient-1-verse" x1="510" y1="48" x2="1067" y2="413.5" gradientUnits="userSpaceOnUse">
 <stop stop-color="#FC5B04"/>
 <stop offset="0.0001" stop-color="#FC5B04"/>
 <stop offset="1" stop-color="#1F1F1F"/>
@@ -34,7 +34,7 @@
 
 
 <!-- GRADIENT 2 -->
-<linearGradient class="gradient-2" id="gradient-2" x1="519" y1="48" x2="1076" y2="413.5" gradientUnits="userSpaceOnUse">
+<linearGradient class="gradient-2-verse" id="gradient-2-verse" x1="519" y1="48" x2="1076" y2="413.5" gradientUnits="userSpaceOnUse">
 <stop offset="0.636174" stop-color="#1F1F1F"/>
 <stop offset="1" stop-color="#FC5B04"/>
 <stop offset="1" stop-color="#FC5B04"/>

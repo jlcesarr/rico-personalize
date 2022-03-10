@@ -3,15 +3,11 @@
         display: none;
         .card-rect {
             transition: all .8s ease;
-            // clip-path: circle(0% at bottom 0 left 0);
         }
         &.is-active {
             display: block;
-            // .card-rect {
-            //     clip-path: circle(200% at bottom 0 left 0) !important;
-            // }
         }
-        animation: card-animation 3s ease infinite alternate;
+        // animation: card-animation 3s ease infinite alternate;
         &.card-default {
             .card-rect {
                 fill: $orange;
@@ -22,14 +18,24 @@
                 fill: #1f1f1f;
             }
         }
-        &.card-gradient-1 {
+        &.card-gradient-1.card-front {
             .card-rect {
-                fill: url(#gradient-1) !important;
+                fill: url(#gradient-1);
             }
         }
-        &.card-gradient-2 {
+        &.card-gradient-1.card-verse {
             .card-rect {
-                fill: url(#gradient-2) !important;
+                fill: url(#gradient-1-verse);
+            }
+        }
+        &.card-gradient-2.card-front {
+            .card-rect {
+                fill: url(#gradient-2);
+            }
+        }
+        &.card-gradient-2.card-verse {
+            .card-rect {
+                fill: url(#gradient-2-verse);
             }
         }
     }

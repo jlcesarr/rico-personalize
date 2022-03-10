@@ -2,7 +2,9 @@
     stroke-width: 0;
     stroke-dasharray: 1 400;
     stroke-opacity: 0;
-    animation: mountRicoLogo 4s ease 1 forwards;
+    fill-opacity: 0;
+    fill: $white-normal;
+    animation: mountRicoLogo 2s ease 1 forwards;
 }
 
 @keyframes mountRicoLogo {
@@ -12,13 +14,14 @@
         stroke-dasharray: 1 400;
         fill-opacity: 0;
     }
-    50% {
+    50%,
+    90% {
         stroke-width: 4;
         stroke-dasharray: 400 0;
         stroke-opacity: 1;
+        fill-opacity: 0;
     }
-    80%,
     100% {
-        fill: $white-normal;
+        fill-opacity: 1;
     }
 }

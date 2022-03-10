@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="Solicite agora mesmo o seu Rico Card!">
+    <meta name="author" content="Júlio César">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="assets/js/vendors/jquery.js"></script>
     <script src="assets/js/vendors/svg-inject.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Rico | Costumize o seu cartão</title>
@@ -41,7 +42,8 @@
             <div class="hero-content">
                 <h1 class="hero-heading">Olá! Seja bem-vindo!</h1>
                 <p class="hero-helper">
-                    Esta é a primeira etapa para solicitar o seu <span class="highlighted">Rico Card</span>!<br> Personalize o seu cartão do modo que preferir.
+                    Esta é a primeira etapa para solicitar o seu <span class="highlighted">Cartão Rico</span>!<br> O primeiro cartão de crédito que acompanha sua carteira de investimentos de perto.<br> Personalize o seu cartão do modo que preferir <br>
+
                 </p>
 
                 <h2 class="hero-subheading">Vamos começar pelo seu nome: </h2>
@@ -79,7 +81,7 @@
                 </div>
 
                 <div class="card-buttons">
-                    <button title="Rotacionar cartão" type="button" class="secondary-button rotate-btn">Rotacionar</button>
+                    <button title="Virar cartão" type="button" class="secondary-button rotate-btn">Virar</button>
                 </div>
             </div>
         </main>
@@ -97,9 +99,7 @@
 
     <script>
         $('.js-tilt').tilt({
-            glare: false,
             perspective: 3000,
-            maxGlare: .3
         })
 
         SVGInject.setOptions({

@@ -3,6 +3,7 @@ import { storage as Storage } from './storage.js'
 
 let currentCardOwner = "";
 let currentCardColor = "default";
+let currentDraft = {}
 
 
 
@@ -27,33 +28,36 @@ const card = {
     rotateCardButton: document.querySelector('.rotate-btn'),
 }
 const drafts = {
-    container: $(".drafts").get(0),
-    list: $(".drafts-list").get(0)
+    container: document.querySelector('.drafts'),
+    list: document.querySelector('.drafts-list')
 }
 
 
 // === HANDLE NAME CHANGE
-const handleCardOwnerChange = event => {
-    let nameInputVale = hero.nameInput.value;
 
-    if (!nameInputVale || nameInputVale.split(" ").length < 2) {
+const changeCardOwner = (name) => {
+    document.querySelector('.card-verse .card-owner').innerHTML = name.toUpperCase();
+}
+const handleCardOwnerChange = event => {
+    let nameInputValue = hero.nameInput.value;
+
+    if (!nameInputValue || nameInputValue.split(" ").length < 2) {
         hero.nameInputErrorMessage.innerText = "Insira um nome válido!"
         hero.nameInputErrorMessage.style.opacity = 1;
         hero.disableButtons()
         return;
     }
 
-    currentCardOwner = nameInputVale.toUpperCase();
+    currentCardOwner = nameInputValue.toUpperCase();
     hero.enableButtons()
 
 
     // hidden error message
-    // hero.nameInputErrorMessage.innerText = ""
     hero.nameInputErrorMessage.style.opacity = 0;
 
 
-    // change card owner name
-    document.querySelector('.card-verse .card-owner').innerHTML = currentCardOwner.toUpperCase();
+    // update card owner name
+    changeCardOwner(currentCardOwner)
 }
 
 
@@ -61,60 +65,73 @@ $(hero.nameInput).bind('keyup', handleCardOwnerChange);
 
 
 // === HANDLE CARD COLOR CHANGE
+const changeCardColor = (colorIdentifier) => {
+
+    const [card, cardVerse] = [
+        document.querySelector('.card'),
+        document.querySelector('.card-verse')
+    ];
+
+    card.classList.replace(`card-${currentCardColor}`, `card-${colorIdentifier}`)
+    cardVerse.classList.replace(`card-${currentCardColor}`, `card-${colorIdentifier}`)
+
+    currentCardColor = colorIdentifier
+}
+
 const handleCardColorChange = event => {
     const { target: color } = event;
 
     if (color.classList.contains('color-select')) {
 
         const { cardColor: selectedColor } = color.dataset;
-        const [card, cardVerse] = [
-            document.querySelector('.card'),
-            document.querySelector('.card-verse')
-        ];
-
-        card.classList.replace(`card-${currentCardColor}`, `card-${selectedColor}`)
-        cardVerse.classList.replace(`card-${currentCardColor}`, `card-${selectedColor}`)
-
-
-        currentCardColor = selectedColor
+        changeCardColor(selectedColor)
     }
 
 }
 $(hero.heroColors).bind('click', handleCardColorChange)
 
 // ===  CARD FRONT/VERSE ALTERNATE
+let shouldShowCardFront = false;
 const handleCardRotate = event => {
     const activeCard = document.querySelector(`.card.is-active.card-${currentCardColor}`);
 
-
-    if (activeCard.classList.contains('card-front')) {
+    if (!shouldShowCardFront) {
         const cardVerse = document.querySelector(`.card.card-verse.card-${currentCardColor}`);
         activeCard.classList.remove('is-active');
         cardVerse.classList.add('is-active');
-    } else if (activeCard.classList.contains('card-verse')) {
+    } else if (shouldShowCardFront) {
         const cardFront = document.querySelector(`.card.card-front.card-${currentCardColor}`);
         activeCard.classList.remove('is-active');
         cardFront.classList.add('is-active');
     }
+    shouldShowCardFront = !shouldShowCardFront;
 }
 
 $(card.rotateCardButton).bind('click', handleCardRotate);
 
 
 // SAVE CARD DRAFT
-
-$(hero.saveDraftButton).bind("click", (event) => {
+const handleSaveOrEditDraft = (ev) => {
     let currentColor = currentCardColor;
     let cardOwner = currentCardOwner;
 
+    if (!currentColor || !cardOwner) return;
 
-    Storage.createCardDraft({
-        cardColor: currentColor,
-        cardOwner
-    });
+    if (currentDraft.id) {
+        Storage.editCardDraft(currentDraft.id, {
+            cardColor: currentColor,
+            cardOwner
+        });
+    } else {
+        Storage.createCardDraft({
+            cardColor: currentColor,
+            cardOwner
+        });
+    }
 
     mountDraftsList();
-});
+}
+$(hero.saveDraftButton).bind("click", handleSaveOrEditDraft);
 
 
 // LIST SAVED DRAFTS
@@ -126,15 +143,16 @@ const mountDraftsList = () => {
 
 
     savedDrafts.forEach((draft) => {
+        // draft item structure
         let mountedItem = `
             <li class="draft-item" key="${draft.id}">
-                <img src="assets/images/card-${draft.cardColor}.png" alt="Card Picture" decoding="async" loading="lazy" class="draft-image">
+                <img src="assets/images/card-${draft.cardColor}.png" alt="Card Picture"  class="draft-image">
                 <span class="draft-owner">${draft.cardOwner}</span>
-                <span class="draft-date">${new Date(draft.date).toLocaleDateString()}</span>
+                <span class="draft-date">${new Date(draft.date).toLocaleString()}</span>
                 <div class="draft-overlay">
                     <div class="overlay-content">
                         <button class="primary-button recover-btn" onclick="recoverDraft(${draft.id})">Recuperar</button>
-                        <button class="primary-button delete-btn" onclick="deleteDraft(${draft.id})">Deletar</button>
+                        <button class="primary-button delete-btn" onclick="deleteDraft(${draft.id})">Excluir</button>
                     </div>
                 </div>
             </li>`
@@ -152,12 +170,20 @@ const mountDraftsList = () => {
 // RECOVER DRAFT
 const recoverDraft = (draftId) => {
     let draft = Storage.getCardDraft(draftId);
-    return draft;
+    currentDraft = {...draft };
+
+    changeCardColor(draft.cardColor)
+    changeCardOwner(draft.cardOwner)
+    hero.nameInput.value = draft.cardOwner;
+    hero.enableButtons()
 }
 
 
 const deleteDraft = (draftId) => {
     Storage.removeCardDraft(draftId);
+    if (currentDraft.id && currentDraft.id == draftId) {
+        currentDraft = {};
+    }
     mountDraftsList();
 }
 
@@ -165,5 +191,5 @@ window.recoverDraft = recoverDraft;
 window.deleteDraft = deleteDraft;
 
 
-// **
+// show drafts list
 mountDraftsList();

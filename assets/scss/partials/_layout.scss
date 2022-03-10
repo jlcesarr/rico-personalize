@@ -18,6 +18,7 @@ header {
     }
 }
 
+// HEADER MENU
 .header-menu {
     .menu-list {
         list-style: none;
@@ -66,11 +67,13 @@ header {
         flex-direction: column;
         margin-top: 48px;
         gap: to-rem(48);
+        align-items: start;
     }
     @include responsive(small) {
         margin-top: 48px;
         flex-direction: column;
         gap: to-rem(48);
+        align-items: center;
     }
 }
 
@@ -162,17 +165,22 @@ aside.drafts {
         width: 90%;
         margin: 1rem;
     }
-}
-
-.drafts-heading {
-    @include typeface-1(24);
-    margin-bottom: to-rem(32);
+    .drafts-heading {
+        @include typeface-1(24);
+        margin-bottom: to-rem(32);
+    }
 }
 
 .drafts-list {
-    @include container;
-    flex-direction: column;
-    row-gap: to-rem(24);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    justify-content: center;
+    width: 100%;
+    @include responsive(large) {
+        grid-auto-flow: row;
+        grid-template-columns: 100%;
+    }
+    row-gap: to-rem(32);
     padding: 10px;
     list-style: none;
     .draft-item {
@@ -187,14 +195,15 @@ aside.drafts {
         }
         .draft-overlay {
             opacity: 0;
-            transition: .5s ease;
+            transition: .1s ease;
             position: absolute;
             width: 100%;
+            pointer-events: none;
             top: 0px;
             left: 0px;
             bottom: 0px;
             right: 0px;
-            background-color: #716b84;
+            background-color: $gray;
             height: 100%;
             .overlay-content {
                 display: flex;
@@ -202,9 +211,19 @@ aside.drafts {
                 padding: 10px;
                 height: 100%;
                 align-items: center;
-                pointer-events: none;
+                // pointer-events: none;
                 button {
                     max-width: 50%;
+                }
+            }
+            @include responsive(small) {
+                position: relative;
+                background-color: transparent;
+                opacity: 1;
+                pointer-events: all;
+                height: auto;
+                button+button {
+                    margin-left: 8px;
                 }
             }
         }
@@ -215,10 +234,12 @@ aside.drafts {
             }
         }
         @include responsive(medium) {
-            width: 300px;
+            width: 100%;
+            flex-direction: column;
         }
         @include responsive(small) {
-            width: 300px;
+            width: 100%;
+            flex-direction: column;
         }
     }
 }

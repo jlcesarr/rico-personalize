@@ -5,19 +5,43 @@ let currentCardOwner = "";
 let currentCardColor = "default";
 let currentDraft = {}
 
+const mobileMenu = {
+    toggleButton: document.querySelector('#bx'),
+    menuContent: document.querySelector('.menu-mobile')
+}
+
+// ========= MENU
+let isMenuOpen = false;
+
+const handleMenuToggle = (event) => {
+    isMenuOpen = !isMenuOpen;
+
+    mobileMenu.menuContent.classList.toggle('is-active', isMenuOpen);
+
+    if (isMenuOpen) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'initial';
+
+    }
+}
+
+$(mobileMenu.toggleButton).bind('click', handleMenuToggle)
 
 
+
+// ======= CONTENT
 const hero = {
     container: document.querySelector('main.hero'),
     nameInput: document.querySelector('input#fullname'),
     nameInputErrorMessage: document.querySelector('.input-error-message'),
     saveDraftButton: document.querySelector('.btn-draft'),
     disableButtons: () => {
-        let enabledButtons = [...$('main.hero .btn-action').get()]
+        let enabledButtons = document.querySelectorAll('main.hero .btn-action')
         enabledButtons.forEach((button) => button.classList.add('disabled'))
     },
     enableButtons: () => {
-        let disabledButtons = [...$('main.hero .btn-action.disabled').get()]
+        let disabledButtons = document.querySelectorAll('main.hero .btn-action.disabled')
         disabledButtons.forEach((button) => button.classList.remove('disabled'))
     },
     heroColors: document.querySelector('.hero-colors')

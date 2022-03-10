@@ -28,7 +28,7 @@
     }
     @else if($size==16) {
         font-size: to-rem(16);
-        line-height: to-rem(25);
+        line-height: to-rem(30);
         font-weight: 300;
     }
     @else if($size==15) {

@@ -10,6 +10,7 @@ header {
         @include container;
         max-width: 100%;
         // margin: 0 auto;
+        align-items: center;
         justify-content: space-between;
         padding: 10px 30px;
         .header-logo {
@@ -48,6 +49,80 @@ header {
     }
 }
 
+//  HEADER MENU MOBILE
+%line {
+    content: '';
+    width: 80%;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background-color: $white-normal;
+    position: absolute
+}
+
+#bx {
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+    background: transparent;
+    display: none;
+    align-self: start;
+    position: relative;
+    &::after,
+    &::before {
+        @extend %line;
+    }
+    &::after {
+        top: 70%;
+    }
+    &::before {
+        top: 90%;
+    }
+    @include responsive(small) {
+        display: block;
+    }
+}
+
+.menu-mobile {
+    position: absolute;
+    pointer-events: none;
+    height: 100vh;
+    top: 0;
+    left: -9999px;
+    width: 75vw;
+    z-index: 999;
+    transition: .3s ease;
+    @include flex;
+    padding: $padding-module / 2;
+    align-items: start;
+    background-color: $white-normal;
+    .menu-mobile-list {
+        list-style: none;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .menu-item {
+            margin-bottom: 16px;
+            border-bottom: 1px solid $gray;
+            .menu-link {
+                @include typeface-2(18);
+                text-decoration: none;
+                color: $orange;
+                text-transform: capitalize;
+                padding: 10px;
+            }
+        }
+    }
+    &.is-active {
+        @include responsive(small) {
+            left: 0;
+            pointer-events: all;
+        }
+    }
+}
+
+// CONTENT
 .content-wrapper {
     display: grid;
     margin: 0 auto;
@@ -92,6 +167,9 @@ header {
         margin-bottom: to-rem(16);
         margin-top: to-rem(16);
     }
+    .hero-helper.card-info {
+        margin-top: to-rem(-8) !important;
+    }
     label,
     input[type="text"] {
         display: block;
@@ -133,11 +211,10 @@ header {
 
 // CARD
 .card-wrapper {
-    // position: relative;
     @include flex;
     flex-direction: column;
     @include responsive(large) {
-        max-height: 530px;
+        align-self: end;
     }
     .card {
         max-width: 300px;
@@ -154,7 +231,7 @@ aside.drafts {
     padding: 40px 5px;
     border-radius: 5px;
     flex-direction: column;
-    height: 95%;
+    max-height: 95%;
     margin: 1rem;
     margin: 0 auto;
     margin-top: 48px;

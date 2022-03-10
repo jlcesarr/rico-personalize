@@ -5,7 +5,6 @@ if (!localStorage.getItem(STORAGE_ITEM_KEY)) {
     localStorage.setItem(STORAGE_ITEM_KEY, JSON.stringify(INITIAL_STORAGE_VALUE));
 }
 
-
 const getStorage = () => JSON.parse(localStorage.getItem(STORAGE_ITEM_KEY));
 
 const setStorage = (data) => localStorage.setItem(STORAGE_ITEM_KEY, JSON.stringify(data));

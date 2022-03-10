@@ -5,26 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="description" content="Solicite agora mesmo o seu Rico Card!">
+    <meta name="description" content="Solicite agora mesmo o seu cartão Rico!">
     <meta name="author" content="Júlio César">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="assets/js/vendors/jquery.js"></script>
-    <script src="assets/js/vendors/svg-inject.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Rico | Costumize o seu cartão</title>
+    <script src="assets/js/vendors/svg-inject.min.js"></script>
+    <title>Rico | Solicite seu cartão</title>
 </head>
 
 <body>
     <!-- HEADER -->
     <header class="header">
         <div class="header-wrapper">
-            <img src="assets/svg/logo.svg" alt="Logo Rico.com.vc" class="header-logo">
+            <img src="assets/svg/logo.svg" alt="Rico Logo" class="header-logo">
 
+
+            <!-- DESKTOP MENU -->
             <nav class="header-menu">
                 <ul class="menu-list">
+                    <li class="menu-item"><a class="menu-link" href="#">Pedir meu cartão</a></li>
+                    <li class="menu-item"><a class="menu-link" href="#">Consultar Regulamento</a></li>
+                    <li class="menu-item"><a class="menu-link" href="#">Vantagens</a></li>
+                    <li class="menu-item"><a class="menu-link" href="#">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <!-- MENU MOBILE -->
+
+            <div id="bx"></div>
+            <nav class="menu-mobile">
+                <ul class="menu-mobile-list">
                     <li class="menu-item"><a class="menu-link" href="#">Pedir meu cartão</a></li>
                     <li class="menu-item"><a class="menu-link" href="#">Consultar Regulamento</a></li>
                     <li class="menu-item"><a class="menu-link" href="#">Vantagens</a></li>
@@ -42,16 +54,19 @@
             <div class="hero-content">
                 <h1 class="hero-heading">Olá! Seja bem-vindo!</h1>
                 <p class="hero-helper">
-                    Esta é a primeira etapa para solicitar o seu <span class="highlighted">Cartão Rico</span>!<br> O primeiro cartão de crédito que acompanha sua carteira de investimentos de perto.<br> Personalize o seu cartão do modo que preferir <br>
+                    Esta é a primeira etapa para solicitar o seu <span class="highlighted">Cartão Rico</span>!<br> O primeiro cartão de crédito que acompanha sua carteira de investimentos de perto.<br>
+                </p>
 
+                <p class="hero-helper">
+                    Personalize o seu cartão do modo que preferir.
                 </p>
 
                 <h2 class="hero-subheading">Vamos começar pelo seu nome: </h2>
-                <h3 class="hero-helper low-opacity">Este será o nome que ficará impresso no verso do seu cartão</h3>
 
                 <input minlength="1" maxlength="20" aria-label="Nome e Sobrenome" type="text" name="fullname" id="fullname" placeholder="Nome e Sobrenome" required autocomplete="off">
-
                 <span class="input-error-message">Insira um nome válido!</span>
+                <h3 class="hero-helper low-opacity card-info">Este será o nome que ficará impresso no verso do seu cartão.</h3>
+
 
 
                 <div class="hero-colors">
@@ -67,7 +82,7 @@
 
                 <div class="hero-buttons">
                     <button type="submit" class="btn-save btn-action primary-button disabled">Continuar</button>
-                    <button type="button" class="btn-draft btn-action secondary-button disabled">Salvar como rascunho</button>
+                    <button type="button" class="btn-draft btn-action secondary-button disabled">Salvar Rascunho</button>
                 </div>
 
             </div>
@@ -76,27 +91,29 @@
             <!-- CARD PREVIEW -->
             <div class="card-wrapper">
                 <div class="js-tilt">
-                    <img class="card card-front card-default is-active" src="assets/svg/cartao-frente.svg" onload="SVGInject(this)">
-                    <img class="card card-verse card-default" src="assets/svg/cartao-verso.svg" onload="SVGInject(this)">
+                    <img class="card card-front card-default is-active" alt="Card Front" src="assets/svg/cartao-frente.svg" onload="SVGInject(this)">
+                    <img class="card card-verse card-default" alt="Card Verse" src="assets/svg/cartao-verso.svg" onload="SVGInject(this)">
                 </div>
 
                 <div class="card-buttons">
                     <button title="Virar cartão" type="button" class="secondary-button rotate-btn">Virar</button>
                 </div>
+
             </div>
         </main>
 
         <!-- DRAFTS -->
         <aside class="drafts">
-            <h2 class="drafts-heading">Rascunhos salvos</h2>
+            <h2 class="drafts-heading">Rascunhos</h2>
             <ul class="drafts-list">
             </ul>
         </aside>
     </div>
 
+    <script src="assets/js/vendors/jquery.js"></script>
+
     <script type="module" src="assets/js/app.js"> </script>
     <script src="assets/js/vendors/tilt.jquery.min.js"></script>
-
     <script>
         $('.js-tilt').tilt({
             perspective: 3000,

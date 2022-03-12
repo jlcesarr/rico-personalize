@@ -1,5 +1,7 @@
 body {
     background-color: $white-dark;
+    width: 100%;
+    min-height: 100vh;
 }
 
 // HEADER (CABEÇALHO)
@@ -9,7 +11,6 @@ header {
     .header-wrapper {
         @include container;
         max-width: 100%;
-        // margin: 0 auto;
         align-items: center;
         justify-content: space-between;
         padding: 10px 30px;
@@ -185,6 +186,8 @@ header {
         &:focus,
         &:hover {
             outline: none;
+        }
+        &:valid {
             border-bottom: 2px solid $orange;
         }
     }
@@ -318,5 +321,111 @@ aside.drafts {
             width: 100%;
             flex-direction: column;
         }
+    }
+}
+
+// SHIPPING FORM
+.modal-overlay {
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    transition: .5s ease;
+    opacity: 0;
+    pointer-events: none;
+    &.is-active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    background: transparentize($gray, 0.2);
+}
+
+.modal-content {
+    background: $blue-dark;
+    color: $white-normal;
+    z-index: 999;
+    padding: 10px 40px;
+    min-height: 100%;
+    @include responsive(large) {
+        width: 100%;
+        padding: 30px 40px;
+    }
+}
+
+.shipping-form {
+    .address-fields {
+        .form-heading {
+            @include typeface-1(24);
+            margin-bottom: to-rem(36);
+            line-height: 30px;
+        }
+        display: grid;
+        grid-template-columns: 100%;
+        @include typeface-2(18);
+        row-gap: to-rem(16);
+        &:valid {
+            .disabled {
+                opacity: 1;
+                pointer-events: all;
+                cursor: pointer;
+            }
+        }
+        border: none;
+        label,
+        input {
+            display: block;
+        }
+        .input-field {
+            margin-top: to-rem(8);
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid $gray;
+            padding: 5px;
+            height: 30px;
+            @include typeface-2(16);
+            color: $white-normal;
+            transition: border .3s ease;
+            width: 100%;
+            &:focus,
+            &:hover {
+                outline: none;
+            }
+            &:valid {
+                border-bottom: 2px solid $orange;
+            }
+        }
+        @include responsive(large) {
+            row-gap: to-rem(24);
+            grid-template-columns: repeat(2, minmax(200px, 1fr));
+            .input-label {
+                width: 100%;
+                max-width: 200px;
+                &.span-field {
+                    grid-column: span 2;
+                    .input-field {
+                        max-width: unset;
+                    }
+                }
+            }
+        }
+    }
+    .form-buttons {
+        margin-top: to-rem(32);
+        display: flex;
+        .btn-send {
+            margin-right: to-rem(16)
+        }
+        .btn-action {
+            max-width: 50% !important;
+        }
+    }
+    @include responsive(medium) {
+        max-width: $container-m;
+    }
+    @include responsive(small) {
+        max-width: $container-s;
     }
 }

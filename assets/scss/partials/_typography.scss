@@ -4,17 +4,17 @@
     font-family: 'Saira', sans-serif;
     @if($size==32) {
         font-size: to-rem(32);
-        line-height: to-rem(5);
+        line-height: to-rem(5, 32);
         font-weight: 600;
     }
     @if($size==24) {
         font-size: to-rem(24);
-        line-height: to-rem(10);
+        line-height: to-rem(10, 24);
         font-weight: 600;
     }
     @if($size==18) {
         font-size: to-rem(18);
-        line-height: to-rem(15);
+        line-height: to-rem(15, 18);
         font-weight: 500;
     }
 }
@@ -23,17 +23,17 @@
     font-family: 'Poppins', sans-serif;
     @if($size==18) {
         font-size: to-rem(18);
-        line-height: to-rem(20);
+        line-height: to-rem(20, 18);
         font-weight: 300;
     }
     @else if($size==16) {
         font-size: to-rem(16);
-        line-height: to-rem(30);
+        line-height: to-rem(30, 16);
         font-weight: 300;
     }
     @else if($size==15) {
         font-size: to-rem(15);
-        line-height: to-rem(26);
+        line-height: to-rem(26, 15);
         font-weight: lighter;
     }
 }

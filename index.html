@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Saira:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/vendors/svg-inject.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Rico | Solicite seu cartão</title>
 </head>
 
@@ -72,16 +72,16 @@
                 <div class="hero-colors">
                     <h2 class="hero-subheading">Agora, escolha a cor do seu cartão:</h2>
                     <h3 class="hero-helper">Cores sólidas</h3>
-                    <button type="button" class="color-select color-1" data-card-color="default"></button>
-                    <button type="button" class="color-select color-2" data-card-color="black"> </button>
+                    <button aria-label="Orange Color" type="button" class="color-select color-1" data-card-color="default"></button>
+                    <button aria-label="Black Color" type="button" class="color-select color-2" data-card-color="black"> </button>
 
                     <h3 class="hero-helper">Gradientes</h3>
-                    <button type="button" class="color-select gradient-1" data-card-color="gradient-1"></button>
-                    <button type="button" class="color-select gradient-2" data-card-color="gradient-2"> </button>
+                    <button aria-label="Gradient Color 1" type="button" class="color-select gradient-1" data-card-color="gradient-1"></button>
+                    <button aria-label="Gradient Color 2" type="button" class="color-select gradient-2" data-card-color="gradient-2"> </button>
                 </div>
 
                 <div class="hero-buttons">
-                    <button type="submit" class="btn-save btn-action primary-button disabled">Continuar</button>
+                    <button type="button" class="btn-next btn-action primary-button disabled">Continuar</button>
                     <button type="button" class="btn-draft btn-action secondary-button disabled">Salvar Rascunho</button>
                 </div>
 
@@ -110,17 +110,72 @@
         </aside>
     </div>
 
+
+    <!-- FORM MODAL -->
+    <!-- <div class="modal-overlay">
+        <div class="close"></div>
+        <div class="modal-content">
+            <form action="#" method="POST" class="shipping-form">
+                <fieldset class="address-fields">
+                    <legend class="form-heading">Preencha os campos com o endereço para a entrega do seu <span class="highlighted">Cartão Rico</span> </legend>
+
+                    <label class="input-label span-field">Nome do Destinatário
+                        <input type="text" class="input-field"  name="recipient" value="Júlio César" required>
+                    </label>
+
+                    <label class="input-label">CEP
+                        <input type="number" id="cep-control" name="CEP" class="input-field"  required>
+                    </label>
+
+                    <label class="input-label">Rua
+                        <input type="text"  name="street" class="input-field" required>
+                    </label>
+
+                    <label class="input-label">Número
+                        <input type="number" name="house-number" class="input-field" required>
+                    </label>
+
+                    <label class="input-label">Bairro
+                        <input type="text" name="district" class="input-field" required>
+                    </label>
+
+                    <label class="input-label span-field">Complemento
+                        <input type="text" name="complement" class="input-field" required>
+                    </label>
+
+                    <label class="input-label">Cidade
+                        <input type="text" name="city" class="input-field" required>
+                    </label>
+
+                    <label class="input-label">Estado
+                        <input type="text" name="state" class="input-field" required>
+                    </label>
+
+                    <label class="input-label span-field">Telefone para contato
+                        <input type="number" name="phone" class="input-field" required>
+                    </label>
+
+                    <div class="form-buttons">
+                        <button type="button" class="btn-send btn-action primary-button">Enviar</button>
+                        <button type="button" class="btn-cancel btn-action secondary-button">Voltar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div> -->
     <script src="assets/js/vendors/jquery.js"></script>
+
+    <script>
+        SVGInject.setOptions({
+            makeIdsUnique: false,
+        })
+    </script>
 
     <script type="module" src="assets/js/app.js"> </script>
     <script src="assets/js/vendors/tilt.jquery.min.js"></script>
     <script>
         $('.js-tilt').tilt({
             perspective: 3000,
-        })
-
-        SVGInject.setOptions({
-            makeIdsUnique: false,
         })
     </script>
 </body>

@@ -1,5 +1,6 @@
 'use strict';
 import { storage as Storage } from './storage.js'
+// import * as viaCep from './providers/viaCep.js'
 
 let currentCardOwner = "";
 let currentCardColor = "default";
@@ -26,7 +27,7 @@ const handleMenuToggle = (event) => {
     }
 }
 
-$(mobileMenu.toggleButton).bind('click', handleMenuToggle)
+mobileMenu.toggleButton.addEventListener('click', handleMenuToggle)
 
 
 
@@ -36,6 +37,7 @@ const hero = {
     nameInput: document.querySelector('input#fullname'),
     nameInputErrorMessage: document.querySelector('.input-error-message'),
     saveDraftButton: document.querySelector('.btn-draft'),
+    proceedButton: document.querySelector('.btn-next'),
     disableButtons: () => {
         let enabledButtons = document.querySelectorAll('main.hero .btn-action')
         enabledButtons.forEach((button) => button.classList.add('disabled'))
@@ -56,7 +58,20 @@ const drafts = {
     list: document.querySelector('.drafts-list')
 }
 
+// const modal = {
+//     overlay: document.querySelector('.modal-overlay'),
+//     proceedButton: document.querySelector('.btn-next')
+// }
 
+
+// // == OPEN ADDRESS FORM
+
+// let isModalOpen = false;
+// modal.proceedButton.addEventListener('click', () => {
+//         isModalOpen = !isModalOpen
+//         modal.overlay.classList.add('is-active', isModalOpen);
+
+//     })
 // === HANDLE NAME CHANGE
 
 const changeCardOwner = (name) => {
@@ -85,7 +100,7 @@ const handleCardOwnerChange = event => {
 }
 
 
-$(hero.nameInput).bind('keyup', handleCardOwnerChange);
+hero.nameInput.addEventListener('keyup', handleCardOwnerChange);
 
 
 // === HANDLE CARD COLOR CHANGE
@@ -112,26 +127,26 @@ const handleCardColorChange = event => {
     }
 
 }
-$(hero.heroColors).bind('click', handleCardColorChange)
+hero.heroColors.addEventListener('click', handleCardColorChange)
 
 // ===  CARD FRONT/VERSE ALTERNATE
 let shouldShowCardFront = false;
 const handleCardRotate = event => {
-    const activeCard = document.querySelector(`.card.is-active.card-${currentCardColor}`);
+    const activeCard = document.querySelector(`.card.is-active`);
 
     if (!shouldShowCardFront) {
-        const cardVerse = document.querySelector(`.card.card-verse.card-${currentCardColor}`);
+        const cardVerse = activeCard.nextElementSibling
         activeCard.classList.remove('is-active');
         cardVerse.classList.add('is-active');
     } else if (shouldShowCardFront) {
-        const cardFront = document.querySelector(`.card.card-front.card-${currentCardColor}`);
+        const cardFront = activeCard.previousElementSibling
         activeCard.classList.remove('is-active');
         cardFront.classList.add('is-active');
     }
     shouldShowCardFront = !shouldShowCardFront;
 }
 
-$(card.rotateCardButton).bind('click', handleCardRotate);
+card.rotateCardButton.addEventListener('click', handleCardRotate);
 
 
 // SAVE CARD DRAFT
@@ -155,7 +170,7 @@ const handleSaveOrEditDraft = (ev) => {
 
     mountDraftsList();
 }
-$(hero.saveDraftButton).bind("click", handleSaveOrEditDraft);
+hero.saveDraftButton.addEventListener("click", handleSaveOrEditDraft);
 
 
 // LIST SAVED DRAFTS
@@ -217,3 +232,32 @@ window.deleteDraft = deleteDraft;
 
 // show drafts list
 mountDraftsList();
+
+
+
+
+
+// const form = {
+//     cepInput: document.querySelector('#cep-control')
+// }
+
+// // ADDRESS FORM
+
+// const handleCEPChange = async() => {
+//     const cepInputValue = form.cepInput.value;
+//     if (cepInputValue.length != 8) return;
+
+//     const address = await viaCep.getAddress(cepInputValue)
+//     const fields = {
+//         street: address.logradouro,
+//         district: address.bairro,
+//         state: address.uf,
+//         city: address.localidade,
+//     }
+
+//     for (let field in fields) {
+//         document.getElementsByName(field)[0].value = fields[field] || "";
+//     }
+// }
+
+// form.cepInput.addEventListener('change', handleCEPChange)

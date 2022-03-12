@@ -8,3 +8,8 @@ HTML, CSS (SASS) e JS
 ### Demo
 
 [Netlify](https://cartao-rico.netlify.app/)
+
+
+## Screenshots
+
+![](https://i.imgur.com/IW7aKrr.png)
